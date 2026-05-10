@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem \"D:\\\\user\\\\Downloads\\\\書審\")",
+      "Bash(Select-Object Name, Length)",
+      "PowerShell(Get-ChildItem \"D:\\\\user\\\\Downloads\\\\書審\" -Recurse | ForEach-Object { $_.FullName })"
+    ]
+  }
+}

@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>賴家煜 — 履歷</title>
+<style>
+  /* ============================================================
+     字體與顏色規格表
+     ──────────────────────────────────────────────────────────
+     背景色：       #F9F9F9（頁面底色）
+     主色（Accent）：#1a5276
+     輔色（Light）： #2980b9
+     淺底色：       #eaf2f8
+
+     文字色階：
+       --text-primary    #1c1c1c   標題、姓名、項目名稱
+       --text-secondary  #444444   內文描述、摘要
+       --text-muted      #666666   日期、補充資訊、頁碼
+
+     字體大小：
+       姓名            24pt  bold
+       Section 標題     12pt  bold
+       學校名稱         13pt  bold
+       數據卡片數字      16pt  bold
+       小標題/職稱       11pt  bold
+       內文             10pt  regular
+       聯絡資訊          9.5pt
+       標籤 chip         9pt
+       chip(輔助)        8.5pt
+       頁碼/微型文字      8pt
+
+     字型：英文 Times New Roman / 中文 標楷體(DFKai-SB)
+     行高：1.55
+     ============================================================ */
+
+  :root {
+    --accent: #1a5276;
+    --accent-light: #2980b9;
+    --accent-bg: #eaf2f8;
+    --page-bg: #F9F9F9;
+    --text-primary: #1c1c1c;
+    --text-secondary: #444;
+    --text-muted: #666;
+    --border: #d5d8dc;
+    --bar-width: 6px;
+    --page-margin: 1cm;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 11pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    font-family: "Times New Roman", "DFKai-SB", "標楷體", "BiauKai", serif;
+    color: var(--text-primary);
+    background: #d0d0d0;
+    line-height: 1.55;
+  }
+
+  /* ===== 頁面容器 ===== */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    background: var(--page-bg);
+    padding: var(--page-margin);
+    /* padding-left: calc(var(--page-margin) + var(--bar-width) + 10mm); */
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* .page::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--bar-width);
+    background: var(--accent);
+  } */
+
+  /* ===== Header ===== */
+  .header {
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 2.5px solid var(--accent);
+  }
+
+  .photo-placeholder {
+    width: 120px;
+    height: 150px;
+    min-width: 120px;
+    border: 2.5px dashed var(--border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 9pt;
+    text-align: center;
+    background: var(--accent-bg);
+    flex-shrink: 0;
+  }
+
+  .header-info {
+    flex: 1;
+    padding-top: 8px;
+  }
+
+  .name {
+    font-size: 24pt;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 6px;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 11pt;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    font-size: 9.5pt;
+    color: var(--text-muted);
+  }
+
+  .contact-row a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  /* ===== 摘要 ===== */
+  .summary {
+    background: var(--accent-bg);
+    border-left: 3.5px solid var(--accent);
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-size: 10pt;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .summary ul { list-style: none; padding: 0; }
+
+  .summary li {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 3px;
+  }
+
+  .summary li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 10pt;
+  }
+
+  /* ===== 區段標題 ===== */
+  .section-title {
+    font-size: 12pt;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 2px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 3px;
+    margin-top: 13px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .section-title .icon { font-size: 11pt; }
+
+  /* ===== 學歷卡片 ===== */
+  .edu-card {
+    background: var(--accent-bg);
+    border: 2px solid var(--accent);
+    border-radius: 0;
+    padding: 0;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .edu-main {
+    flex: 1;
+    padding: 12px 16px;
+  }
+
+  .edu-school {
+    font-weight: 700;
+    font-size: 13pt;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+
+  .edu-dept {
+    font-size: 11pt;
+    color: var(--text-secondary);
+  }
+
+  .edu-stats {
+    display: flex;
+    gap: 0;
+    flex: 1;
+    align-items: stretch;
+  }
+
+  .stat-box {
+    text-align: center;
+    background: #fff;
+    border-left: 1.5px solid var(--accent);
+    border-radius: 0;
+    padding: 0 12px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stat-number {
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.2;
+  }
+
+  .stat-label {
+    font-size: 12pt;
+    color: var(--accent);
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  /* ===== 經歷 ===== */
+  .exp-item {
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .exp-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .exp-title {
+    font-weight: 700;
+    font-size: 12.5pt;
+    color: var(--text-primary);
+  }
+
+  .exp-meta {
+    font-size: 11pt;
+    color: var(--accent-light);
+    font-style: italic;
+    white-space: nowrap;
+  }
+
+  .exp-role {
+    font-size: 11pt;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 2px;
+  }
+
+  .exp-desc {
+    font-size: 11pt;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* ===== 技能表格 + Chip ===== */
+  .skill-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+  }
+
+  .skill-table th {
+    text-align: left;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 9.5pt;
+    padding: 5px 10px;
+    background: var(--accent-bg);
+    border: 1px solid #c5d9e8;
+    white-space: nowrap;
+    width: 110px;
+    vertical-align: middle;
+  }
+
+  .skill-table td {
+    padding: 5px 10px;
+    border: 1px solid #c5d9e8;
+    vertical-align: middle;
+  }
+
+  .chip {
+    display: inline-block;
+    background: var(--accent-bg);
+    color: var(--accent);
+    font-size: 9pt;
+    padding: 2px 9px;
+    border-radius: 12px;
+    border: 1px solid #b8d4e8;
+    margin: 2px 3px 2px 0;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .chip.secondary {
+    background: #f0f0f0;
+    color: var(--text-muted);
+    border-color: #ccc;
+    font-size: 8.5pt;
+  }
+
+  /* ===== 學術發表（強調卡片） ===== */
+  .pub-card {
+    background: var(--accent-bg);
+    border: 2px solid var(--accent);
+    border-radius: 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .pub-badge {
+    position: absolute;
+    top: -1px;
+    right: 12px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 7.5pt;
+    padding: 2px 10px 3px;
+    border-radius: 0;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+  }
+
+  .pub-title {
+    font-weight: 700;
+    font-size: 10.5pt;
+    color: var(--text-primary);
+    font-style: italic;
+    line-height: 1.4;
+    padding-right: 80px;
+  }
+
+  .pub-venue {
+    color: var(--accent);
+    font-size: 9.5pt;
+    margin-top: 3px;
+    font-weight: 600;
+  }
+
+  .pub-authors {
+    color: var(--text-secondary);
+    font-size: 9pt;
+    margin-top: 2px;
+  }
+
+  /* ===== 作品集 ===== */
+  .project-item {
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .project-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .project-name {
+    font-weight: 700;
+    font-size: 12.5pt;
+    color: var(--text-primary);
+  }
+
+  .project-type {
+    font-size: 10pt;
+    color: #fff;
+    background: var(--accent-light);
+    padding: 1px 8px;
+    border-radius: 3px;
+  }
+
+  .project-desc {
+    font-size: 11pt;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .project-time {
+    font-size: 10.5pt;
+    color: var(--accent-light);
+    font-style: italic;
+    margin-bottom: 2px;
+  }
+
+  /* ===== 證照 ===== */
+  .cert-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .cert-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 11.5pt;
+    color: var(--text-primary);
+  }
+
+  .cert-list li:last-child {
+    border-bottom: none;
+  }
+
+  .cert-icon {
+    color: var(--accent);
+    font-size: 11.5pt;
+    flex-shrink: 0;
+  }
+
+  .cert-name {
+    font-weight: 700;
+  }
+
+  .cert-detail {
+    color: var(--text-muted);
+    font-size: 10.5pt;
+  }
+
+  /* ===== 圖片預留區 ===== */
+  .figure-block {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .figure-placeholder {
+    width: 100%;
+    height: 180px;
+    border: 2px dashed var(--border);
+    background: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  .figure-caption {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== 書審文件頁（非履歷）===== */
+  .page-doc {
+    padding: 2.54cm 2.5cm;
+    font-size: 14px;
+  }
+
+  /* ===== 內容預留區 ===== */
+  .content-placeholder {
+    width: 100%;
+    min-height: 60px;
+    border: 1.5px dashed #bbb;
+    background: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+  }
+
+  /* ===== 封面 ===== */
+  .page-cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3cm 2.5cm 2.5cm;
+  }
+
+  .cover-logo-placeholder {
+    width: 160px;
+    height: 160px;
+    border: 2px dashed var(--border);
+    background: var(--accent-bg);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.8;
+  }
+
+  .cover-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: 100%;
+  }
+
+  .cover-title {
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 6px;
+    text-align: center;
+    line-height: 1.6;
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 14px;
+    width: 100%;
+  }
+
+  .cover-subtitle {
+    font-size: 14pt;
+    color: var(--text-secondary);
+    letter-spacing: 3px;
+    text-align: center;
+  }
+
+  .cover-footer {
+    width: 100%;
+    border-top: 1.5px solid var(--border);
+    padding-top: 16px;
+    text-align: center;
+    font-size: 13pt;
+    color: var(--text-secondary);
+    letter-spacing: 3px;
+    line-height: 2.2;
+  }
+
+  /* ===== 目錄 ===== */
+  .toc-title {
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--accent);
+    text-align: center;
+    letter-spacing: 6px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .toc-list li {
+    display: flex;
+    align-items: baseline;
+    padding: 4px 0;
+    font-size: 14px;
+  }
+
+  .toc-list a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .toc-list a:hover { color: var(--accent-light); }
+
+  .toc-sub a {
+    font-weight: 400;
+    color: var(--text-secondary);
+    padding-left: 1.8em;
+  }
+
+  .toc-dots {
+    flex: 1;
+    border-bottom: 1.5px dotted #ccc;
+    margin: 0 8px 3px;
+    min-width: 20px;
+  }
+
+  .toc-page {
+    font-size: 14px;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  /* ===== 附件頁 ===== */
+  .attachment-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    letter-spacing: 4px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+  }
+
+  .attachment-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+  }
+
+  /* ===== 自傳 ===== */
+  .bio-sub-title {
+    font-size: 12pt;
+    font-weight: 700;
+    color: var(--accent);
+    border-left: 4px solid var(--accent);
+    padding-left: 10px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  .bio-content p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    text-indent: 2em;
+    margin-bottom: 10px;
+  }
+
+  /* ===== 頁碼 ===== */
+  .page-number {
+    position: absolute;
+    bottom: 8mm;
+    right: 12mm;
+    font-size: 8pt;
+    color: var(--text-muted);
+  }
+
+  /* ===== 列印 ===== */
+  @media print {
+    html { font-size: 11pt; }
+    body { background: none; }
+
+    :root {
+      --text-primary:   #000000;
+      --text-secondary: #111111;
+      --text-muted:     #333333;
+    }
+
+    .page {
+      margin: 0;
+      padding: var(--page-margin);
+      box-shadow: none;
+      width: 100%;
+      height: 297mm;
+      background: var(--page-bg);
+    }
+
+    .page-doc {
+      padding: 2.54cm 2.5cm;
+    }
+
+    .page-cover {
+      padding: 3cm 2.5cm 2.5cm;
+    }
+
+    .page::before,
+    .summary,
+    .chip,
+    .chip.secondary,
+    .project-type,
+    .photo-placeholder,
+    .edu-card,
+    .stat-box,
+    .pub-card,
+    .pub-badge,
+    .skill-table th,
+    .skill-table td {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    a {
+      text-decoration: none !important;
+      color: var(--text-muted) !important;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+  }
+
+  /* ===== 螢幕預覽 ===== */
+  @media screen {
+    .page {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== 封面 ==================== -->
+<div class="page page-cover">
+
+  <div class="cover-logo-placeholder">
+    學校 Logo<br>請置入圖片
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-title">書審資料</div>
+    <div class="cover-subtitle">xxxxx 系</div>
+  </div>
+
+  <div class="cover-footer">
+    國立臺中科技大學　資訊工程科<br>
+    賴　家　煜
+  </div>
+
+</div>
+
+<!-- ==================== 目錄 ==================== -->
+<div class="page page-break page-doc" id="toc">
+
+  <div class="toc-title">目　錄</div>
+
+  <ul class="toc-list">
+    <li>
+      <a href="#resume">履歷</a>
+      <span class="toc-dots"></span>
+      <span class="toc-page">3</span>
+    </li>
+    <li>
+      <a href="#bio-1">一、自傳</a>
+      <span class="toc-dots"></span>
+      <span class="toc-page">5</span>
+    </li>
+    <li class="toc-sub">
+      <a href="#bio-1">（一）學習歷程與思維養成</a>
+      <span class="toc-dots"></span>
+      <span class="toc-page">5</span>
+    </li>
+    <li class="toc-sub">
+      <a href="#bio-2">（二）實務積累與研究突破</a>
+      <span class="toc-dots"></span>
+      <span class="toc-page">6</span>
+    </li>
+    <li>
+      <a href="#section-2">二、競賽成果與學術發表</a>
+      <span class="toc-dots"></span>
+      <span class="toc-page">7</span>
+    </li>
+    <li class="toc-sub">
+      <a href="#section-2">1. 研討會論文發表</a>
+      <span class="toc-dots"></span>
+      <span class="toc-page">7</span>
+    </li>
+    <li class="toc-sub">
+      <a href="#section-2">2. 校內專題競賽</a>
+      <span class="toc-dots"></span>
+      <span class="toc-page">7</span>
+    </li>
+    <li class="toc-sub">
+      <a href="#section-2">3. iThome 2023 鐵人賽　完賽</a>
+      <span class="toc-dots"></span>
+      <span class="toc-page">7</span>
+    </li>
+    <li>
+      <a href="#section-3">三、實習經歷與作品集</a>
+      <span class="toc-dots"></span>
+      <span class="toc-page">8</span>
+    </li>
+    <li class="toc-sub">
+      <a href="#section-3">1. 友通資訊股份有限公司　PCB Layout 自動化工具</a>
+      <span class="toc-dots"></span>
+      <span class="toc-page">8</span>
+    </li>
+    <li class="toc-sub">
+      <a href="#section-3">2. 校園場地租借系統　產學合作</a>
+      <span class="toc-dots"></span>
+      <span class="toc-page">8</span>
+    </li>
+    <li class="toc-sub">
+      <a href="#section-3">3. 臥龍創意設計　前端模板設計</a>
+      <span class="toc-dots"></span>
+      <span class="toc-page">8</span>
+    </li>
+    <li class="toc-sub">
+      <a href="#section-3">4. 樂聯工業股份有限公司　系統除錯協作</a>
+      <span class="toc-dots"></span>
+      <span class="toc-page">8</span>
+    </li>
+    <li>
+      <a href="#appendix-1">附件一</a>
+      <span class="toc-dots"></span>
+      <span class="toc-page">9</span>
+    </li>
+    <li>
+      <a href="#appendix-2">附件二</a>
+      <span class="toc-dots"></span>
+      <span class="toc-page">10</span>
+    </li>
+  </ul>
+
+</div>
+
+<!-- ==================== 第一頁 ==================== -->
+<div class="page page-break" id="resume">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="photo-placeholder">
+      請貼上<br>大頭照<br><span style="font-size:7.5pt;color:#999;">120 × 150 px</span>
+    </div>
+    <div class="header-info">
+      <div class="name">賴 家 煜</div>
+      <div class="subtitle">資訊工程 ｜ 全端開發 ｜ AI 電腦視覺</div>
+      <div class="contact-row">
+        <span>✆ 0909-956-502</span>
+        <span>✉ a0909956502@gmail.com</span>
+        <span>⌂ <a href="https://github.com/ttdragon0722" target="_blank">github.com/ttdragon0722</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 摘要 -->
+  <div class="summary">
+    <ul>
+      <li>國立臺中科技大學資訊工程科畢業，在校期間涵蓋 AI 電腦視覺研究、全端系統開發與自動化工具建置三大方向</li>
+      <li>以第一作者身份發表兩篇國內外研討會論文（TWELF 2025、FC 2025），研究聚焦 YOLO 與 OCR 應用於自動化閱卷系統</li>
+      <li>獨立開發 PCB 元件自動化製圖工具，正式交付友通資訊（DFI）使用，獲公司年會評比第三名</li>
+      <li>熟悉 TypeScript、Python、Next.js、FastAPI 等技術棧，具備從研究設計到系統交付的完整實務能力</li>
+      <li>申請二技旨在延續技術積累，在系統化學術環境中深化 AI 應用與系統工程整合研究</li>
+    </ul>
+  </div>
+
+  <!-- 學歷 -->
+  <div class="section-title"><span class="icon">◆</span> 學歷</div>
+  <div class="edu-card">
+    <div class="edu-main">
+      <div class="edu-school">國立臺中科技大學</div>
+      <div class="edu-dept">五專部 資訊工程科 — 畢業</div>
+    </div>
+    <div class="edu-stats">
+      <div class="stat-box">
+        <div class="stat-number">83.16</div>
+        <div class="stat-label">在校平均成績</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">10<span style="font-size:10pt;font-weight:400;"> / 84</span></div>
+        <div class="stat-label">系排名（前 11%）</div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- 學術發表（強調） -->
+  <div class="section-title"><span class="icon">◆</span> 學術發表　<span style="font-size:9pt;font-weight:400;color:var(--accent-light);letter-spacing:0;">— 兩篇皆為第一作者</span></div>
+
+  <div class="pub-card">
+    <div class="pub-badge">國內研討會</div>
+    <div class="pub-title">基於光學字元辨識之智慧閱卷模型</div>
+    <div class="pub-venue">第二十屆台灣數位學習發展研討會（TWELF 2025）</div>
+    <div class="pub-authors"><strong>賴家煜</strong>、黃馨蝶、劉嘉雯、黃祈勝</div>
+  </div>
+
+  <div class="pub-card">
+    <div class="pub-badge">國際研討會</div>
+    <div class="pub-title">A Text Feature Recognition Model for Examination Papers Based on OCR Integrated with YOLO</div>
+    <div class="pub-venue">The 15th International Conference on Frontier Computing (FC 2025)</div>
+    <div class="pub-authors"><strong>Jia-Yu Lai</strong>, Alisa Huang, Jia-Wen Liou, Chi-Sheng Huang</div>
+  </div>
+
+  <!-- 技術能力（表格 + Chip） -->
+  <div class="section-title" style="margin-top:0;"><span class="icon">◆</span> 技術能力</div>
+
+  <table class="skill-table">
+    <tr>
+      <th>程式語言</th>
+      <td>
+        <span class="chip">TypeScript</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">Python</span>
+        <span class="chip">HTML / CSS</span>
+        <span class="chip secondary">C</span>
+        <span class="chip secondary">C++</span>
+        <span class="chip secondary">C#</span>
+      </td>
+    </tr>
+    <tr>
+      <th>框架 / 函式庫</th>
+      <td>
+        <span class="chip">Next.js</span>
+        <span class="chip">React</span>
+        <span class="chip">React Native</span>
+        <span class="chip">FastAPI</span>
+        <span class="chip">Flask</span>
+        <span class="chip secondary">ASP.NET</span>
+      </td>
+    </tr>
+    <tr>
+      <th>資料庫</th>
+      <td>
+        <span class="chip">MySQL</span>
+        <span class="chip">資料庫設計</span>
+      </td>
+    </tr>
+    <tr>
+      <th>AI / 電腦視覺</th>
+      <td>
+        <span class="chip">YOLO</span>
+        <span class="chip">OCR</span>
+        <span class="chip">OpenCV</span>
+        <span class="chip">TensorFlow</span>
+      </td>
+    </tr>
+    <tr>
+      <th>開發工具</th>
+      <td>
+        <span class="chip">Git</span>
+        <span class="chip">VS Code Extension</span>
+        <span class="chip">Tailwind CSS</span>
+        <span class="chip">Notion</span>
+        <span class="chip">Mermaid</span>
+        <span class="chip">LaTeX</span>
+      </td>
+    </tr>
+  </table>
+
+  <div style="margin-top:4px; font-size:8pt; color:var(--text-muted); padding-left:2px;">
+    ● 主力技能&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#999;">●</span> 具備經驗
+  </div>
+  
+  <div class="page-number">— 1 / 2 —</div>
+</div>
+
+<!-- ==================== 第二頁 ==================== -->
+<div class="page page-break">
+  <!-- 工作經驗 -->
+  <div class="section-title"><span class="icon">◆</span> 工作經驗</div>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <span class="exp-title">友通資訊股份有限公司（DFI）</span>
+      <span class="exp-meta">2025 – 2026</span>
+    </div>
+    <div class="exp-role">Part-time ｜ 軟體開發</div>
+    <div class="exp-desc">獨立開發 PCB 元件自動化製圖工具，負責需求分析、開發、交付與文件撰寫，正式交付企業內部使用，獲公司年會專案評比第三名。</div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <span class="exp-title">臥龍創意設計有限公司</span>
+      <span class="exp-meta">2023, 2025 – 2026</span>
+    </div>
+    <div class="exp-role">Part-time ｜ 前端開發</div>
+    <div class="exp-desc">設計並實作商業網站模板，技術從原生 HTML 升級至 Tailwind CSS + React。</div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <span class="exp-title">樂聯工業股份有限公司</span>
+      <span class="exp-meta">2025</span>
+    </div>
+    <div class="exp-role">Part-time ｜ 系統維護</div>
+    <div class="exp-desc">針對十年以上舊有 PHP 系統進行除錯與問題定位，釐清系統邏輯並解決問題。</div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <span class="exp-title">御先科技</span>
+      <span class="exp-meta">2022（半年）</span>
+    </div>
+    <div class="exp-role">兼職實習 ｜ IT 技術</div>
+    <div class="exp-desc">電腦硬體維修組裝、區域網路架設與設定。</div>
+  </div>
+  
+  <!-- 作品集 -->
+  <div class="section-title"><span class="icon">◆</span> 作品集 / 專案經歷</div>
+
+  <div class="project-item">
+    <div class="project-header">
+      <span class="project-name">校園場地租借系統</span>
+      <span class="project-type">產學合作</span>
+    </div>
+    <div class="project-time">2023 – 2024，持續維護至今</div>
+    <div class="project-desc">以 Next.js + TypeScript + FastAPI + MySQL 技術棧開發，負責前端開發、後端 API 串接與部分專案管理（PM）工作，實際部署並服務校園使用者。</div>
+  </div>
+
+  <div class="project-item">
+    <div class="project-header">
+      <span class="project-name">iThome 鐵人賽 2023</span>
+      <span class="project-type">個人</span>
+    </div>
+    <div class="project-time">2023</div>
+    <div class="project-desc">30 天連續發文完賽，主題為「HTML／CSS／JavaScript／Flask 網頁全端入門」系列，累積完整的技術寫作與知識輸出經驗。</div>
+  </div>
+
+  <div class="project-item">
+    <div class="project-header">
+      <span class="project-name">系學會網頁前端工作坊</span>
+      <span class="project-type">志工講師</span>
+    </div>
+    <div class="project-time">預計 2026 年 6 月執行</div>
+    <div class="project-desc">規劃並主講前端開發課程，涵蓋 HTML、CSS、JavaScript 基礎至 React 入門，協助學弟妹建立網頁開發能力。</div>
+  </div>
+
+  <!-- 專業證照 -->
+  <div class="section-title"><span class="icon">◆</span> 專業證照</div>
+
+  <ul class="cert-list">
+    <li>
+      <span class="cert-icon">▪</span>
+      <div>
+        <span class="cert-name">AI 素養級認證（AIATCL）</span>
+      </div>
+    </li>
+    <li>
+      <span class="cert-icon">▪</span>
+      <div>
+        <span class="cert-name">科技英文 PVQC</span>
+        <div class="cert-detail">Professional Vocabulary Quotient Credential</div>
+      </div>
+    </li>
+    <li>
+      <span class="cert-icon">▪</span>
+      <div>
+        <span class="cert-name">App Inventor 2 結構化與模組化程式設計</span>
+      </div>
+    </li>
+  </ul>
+
+  <div class="page-number">— 2 / 2 —</div>
+</div>
+
+<!-- ==================== 第三頁 ==================== -->
+<div class="page page-break page-doc" id="bio-1">
+
+  <div class="section-title"><span class="icon">◆</span> 一、自傳</div>
+
+  <div class="bio-sub-title">（一）學習歷程與思維養成</div>
+  <div class="bio-content">
+    <p>我是賴家煜，就讀於國立臺中科技大學五專部資訊工程科。回顧進入這個領域的起點，與其說是一個清晰的志向，不如說是一種對「想解決問題」的天生執念。從小我就對「思考問題的解法」格外感興趣，時常在思考，這樣子處理能否解決問題？是否有更快、更有效的方法解決問題？換一個零件能不能讓它重新運作？這種面對問題時想搞清楚根源、而非繞路迴避的習慣，在我接觸程式設計後找到了最適合它生長的土壤。專一修習網頁設計與程式設計兩門課時，我第一次意識到：程式是一種工具，而他可以幫助我解決日常生活真實的問題。每當下課結束後，我沒有停下來，反而開始在課外自學——不是為了成績，而是因為我想知道「我可以做到什麼程度」。</p>
+    <p>在五專的課程體系中，我的學習路徑並非線性的——而是以「遇到問題、回頭補課」的方式螺旋推進。當我開始自學前端框架、嘗試寫出真正能互動的網頁時，我才在物件導向設計課程中理解了「前人的設計以及更有效率的架構」；當我在課外開始接觸 YOLO 與 CNN 模型、嘗試讓電腦「看懂」影像時，人工智慧概論補全了我對損失函數與梯度下降的理論認識，讓我不只是能跑模型，而是能讀懂訓練曲線背後的意義。網路應用程式應用與 App 程式應用兩門課，則讓我從 API CRUD的設計、HTTP 協定到行動裝置開發，建立起一套對全端架構的系統性認識。這段課程與實作交織的歷程，讓我理解到一件事：課堂不是學習的起點，而是自學路上的校正機制。每一次我在實作中撞牆，回到課程裡找到的不只是答案，而是讓我能把問題問得更精準的框架。</p>
+  </div>
+
+  <div class="figure-block">
+    <div class="figure-placeholder">[ 請置入圖片 ]</div>
+    <div class="figure-caption">圖一、&emsp;（請填寫圖片說明文字）</div>
+  </div>
+
+  <div class="page-number">— 3 / 4 —</div>
+</div>
+
+<!-- ==================== 第四頁 ==================== -->
+<div class="page page-break page-doc" id="bio-2">
+
+  <div class="bio-sub-title">（二）實務積累與研究突破</div>
+  <div class="bio-content">
+    <p>技術積累到一定程度後，實務機會自然而至——但真正推動我踏出第一步的，仍然是那個「先答應、再解決」的性格。專二時，同學從學生會接下校園場地租借系統的產學開發案，問我能不能負責前端。那時我對 Next.js 與 React 框架幾乎完全陌生，但我說：我能做。接下來的一個月，我邊學邊做，在甲方需求模糊、開會時間難協調的現實壓力下，主動扮演橋接角色，引導校方將「希望系統好用一點」這樣的模糊期待，轉譯成可執行的技術規格，最終在截止日前完成系統上線。這套系統至今仍在校方實際運行，是我對那段壓力的最好回應。那次經驗讓我確認了一件事：工程師的核心能力不只是寫出能跑的程式碼，而是把真實世界的混亂需求，轉化成清晰可執行的技術方案的能力。這個認識，後來在我承接友通資訊（DFI）的 PCB 元件自動化製圖工具開發案時，再次得到印證。面對工程師模糊描述的作業痛點，我先理解他們的工作流程，再設計工具。從需求訪談、系統架構、程式開發到文件交付，涵蓋報價與時程協商等商業溝通，最終將原本數小時的手動製圖縮短至數秒，並獲得 DFI 公司年會專案評比第三名。</p>
+    <p>與此同時，在指導教授的帶領下，我以不到七天的時間完成了 YOLOv7 × OCR 自動化閱卷系統的研究雛型，並以第一作者身份分別於 FC 2025（日本）與 TWELF 2025 發表英文與中文論文。這段高壓研究的經歷讓我看見：工程能力與研究能力的本質高度重疊——定義清楚的問題、設計可重現的實驗、用精準的語言說明成果，這三件事在開發與研究中缺一不可。從一門讓我覺得「有趣」的網頁設計課，到獨立交付企業級工具、完成國際論文發表，這條路並非一開始就規劃好的。驅動我走到這裡的，始終是同一件事：發現一個問題，然後非得把它解決不可。</p>
+  </div>
+
+  <div class="figure-block">
+    <div class="figure-placeholder">[ 請置入圖片 ]</div>
+    <div class="figure-caption">圖二、&emsp;（請填寫圖片說明文字）</div>
+  </div>
+
+  <div class="page-number">— 4 —</div>
+</div>
+
+<!-- ==================== 第五頁：二、競賽成果與學術發表 ==================== -->
+<div class="page page-break page-doc" id="section-2">
+
+  <div class="section-title"><span class="icon">◆</span> 二、競賽成果與學術發表</div>
+
+  <div class="bio-sub-title">1. 研討會論文發表</div>
+  <div class="content-placeholder">內容待填寫</div>
+  <div class="figure-block">
+    <div class="figure-placeholder">[ 請置入圖片 ]</div>
+    <div class="figure-caption">圖三、&emsp;（請填寫圖片說明文字）</div>
+  </div>
+
+  <div class="bio-sub-title">2. 校內專題競賽</div>
+  <div class="content-placeholder">內容待填寫</div>
+  <div class="figure-block">
+    <div class="figure-placeholder">[ 請置入圖片 ]</div>
+    <div class="figure-caption">圖四、&emsp;（請填寫圖片說明文字）</div>
+  </div>
+
+  <div class="bio-sub-title">3. iThome 2023 鐵人賽　完賽</div>
+  <div class="content-placeholder">內容待填寫</div>
+  <div class="figure-block">
+    <div class="figure-placeholder">[ 請置入圖片 ]</div>
+    <div class="figure-caption">圖五、&emsp;（請填寫圖片說明文字）</div>
+  </div>
+
+  <div class="page-number">— 5 —</div>
+</div>
+
+<!-- ==================== 第六頁：三、實習經歷與作品集 ==================== -->
+<div class="page page-break page-doc" id="section-3">
+
+  <div class="section-title"><span class="icon">◆</span> 三、實習經歷與作品集</div>
+
+  <div class="bio-sub-title">1. 友通資訊股份有限公司　PCB Layout 自動化工具</div>
+  <div class="content-placeholder">內容待填寫</div>
+  <div class="figure-block">
+    <div class="figure-placeholder">[ 請置入圖片 ]</div>
+    <div class="figure-caption">圖六、&emsp;（請填寫圖片說明文字）</div>
+  </div>
+
+  <div class="bio-sub-title">2. 校園場地租借系統　產學合作</div>
+  <div class="content-placeholder">內容待填寫</div>
+  <div class="figure-block">
+    <div class="figure-placeholder">[ 請置入圖片 ]</div>
+    <div class="figure-caption">圖七、&emsp;（請填寫圖片說明文字）</div>
+  </div>
+
+  <div class="bio-sub-title">3. 臥龍創意設計　前端模板設計</div>
+  <div class="content-placeholder">內容待填寫</div>
+  <div class="figure-block">
+    <div class="figure-placeholder">[ 請置入圖片 ]</div>
+    <div class="figure-caption">圖八、&emsp;（請填寫圖片說明文字）</div>
+  </div>
+
+  <div class="bio-sub-title">4. 樂聯工業股份有限公司　系統除錯協作</div>
+  <div class="content-placeholder">內容待填寫</div>
+  <div class="figure-block">
+    <div class="figure-placeholder">[ 請置入圖片 ]</div>
+    <div class="figure-caption">圖九、&emsp;（請填寫圖片說明文字）</div>
+  </div>
+
+  <div class="page-number">— 6 —</div>
+</div>
+
+<!-- ==================== 第七頁：附件一 ==================== -->
+<div class="page page-break page-doc" id="appendix-1">
+  <div class="attachment-title">附件一</div>
+  <div class="attachment-subtitle">（請填寫附件名稱）</div>
+  <div class="figure-block">
+    <div class="figure-placeholder" style="height:360px;">[ 請置入附件圖片或掃描檔 ]</div>
+  </div>
+  <div class="page-number">— 7 —</div>
+</div>
+
+<!-- ==================== 第八頁：附件二 ==================== -->
+<div class="page page-break page-doc" id="appendix-2">
+  <div class="attachment-title">附件二</div>
+  <div class="attachment-subtitle">（請填寫附件名稱）</div>
+  <div class="figure-block">
+    <div class="figure-placeholder" style="height:360px;">[ 請置入附件圖片或掃描檔 ]</div>
+  </div>
+  <div class="page-number">— 8 —</div>
+</div>
+
+</body>
+</html>
