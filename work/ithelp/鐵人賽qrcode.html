@@ -1,0 +1,241 @@
+
+<style>
+  .wrap { padding: 1.5rem 0; max-width: 680px; }
+  .field { margin-bottom: 1rem; }
+  .field label { display: block; font-size: 13px; color: var(--color-text-secondary); margin-bottom: 6px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .preview-box { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 12px; min-height: 280px; justify-content: center; border: 0.5px solid var(--color-border-tertiary); }
+  #qr-canvas { border-radius: var(--border-radius-md); }
+  .caption { font-size: 13px; color: var(--color-text-secondary); text-align: center; max-width: 220px; }
+  .logo-preview { width: 40px; height: 40px; border-radius: 6px; object-fit: contain; border: 0.5px solid var(--color-border-tertiary); background: white; }
+  .logo-zone { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .remove-btn { font-size: 12px; color: var(--color-text-danger); background: none; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 4px 10px; cursor: pointer; }
+  .dl-btn { background: none; border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); padding: 8px 20px; font-size: 14px; cursor: pointer; color: var(--color-text-primary); display: flex; align-items: center; gap: 6px; }
+  .dl-btn:hover { background: var(--color-background-secondary); }
+  .color-row { display: flex; align-items: center; gap: 8px; }
+  .color-row input[type=color] { width: 36px; height: 36px; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 2px; cursor: pointer; background: none; }
+  .color-label { font-size: 13px; color: var(--color-text-secondary); min-width: 52px; }
+  .placeholder-icon { color: var(--color-text-secondary); font-size: 48px; opacity: 0.3; }
+  .placeholder-text { font-size: 13px; color: var(--color-text-secondary); opacity: 0.6; }
+  .size-slider { display: flex; align-items: center; gap: 10px; }
+  .size-slider span { font-size: 13px; color: var(--color-text-secondary); min-width: 50px; }
+</style>
+
+<div class="wrap">
+  <h2 class="sr-only">QR Code 產生工具</h2>
+
+  <div style="display:grid; grid-template-columns: 1fr 260px; gap: 2rem; align-items: start;">
+    <div>
+      <div class="field">
+        <label>目標網址 <span style="color:var(--color-text-danger)">*</span></label>
+        <input type="text" id="url" placeholder="https://your-domain.com/page" style="width:100%;box-sizing:border-box;" />
+      </div>
+
+      <div class="field">
+        <label>說明文字（顯示於 QR Code 下方）</label>
+        <input type="text" id="caption" placeholder="掃描以瞭解更多" style="width:100%;box-sizing:border-box;" />
+      </div>
+
+      <div class="field">
+        <label>Logo（可選）</label>
+        <div class="logo-zone">
+          <input type="file" id="logo-input" accept="image/*" style="display:none" />
+          <button class="dl-btn" onclick="document.getElementById('logo-input').click()">
+            <i class="ti ti-upload" aria-hidden="true"></i> 選擇圖片
+          </button>
+          <img id="logo-preview" class="logo-preview" style="display:none" />
+          <button class="remove-btn" id="remove-logo" style="display:none" onclick="removeLogo()">移除</button>
+        </div>
+      </div>
+
+      <div class="row" style="margin-bottom: 1rem;">
+        <div class="field" style="margin-bottom:0">
+          <label>前景色</label>
+          <div class="color-row">
+            <input type="color" id="fg-color" value="#000000" />
+            <span class="color-label" id="fg-hex">#000000</span>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label>背景色</label>
+          <div class="color-row">
+            <input type="color" id="bg-color" value="#ffffff" />
+            <span class="color-label" id="bg-hex">#ffffff</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>尺寸</label>
+        <div class="size-slider">
+          <input type="range" min="160" max="400" step="20" value="240" id="qr-size" style="flex:1;" />
+          <span id="size-out">240px</span>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:1.5rem;">
+        <button class="dl-btn" onclick="generateQR()">
+          <i class="ti ti-refresh" aria-hidden="true"></i> 產生
+        </button>
+        <button class="dl-btn" id="dl-btn" style="display:none" onclick="downloadQR()">
+          <i class="ti ti-download" aria-hidden="true"></i> 下載 PNG
+        </button>
+      </div>
+    </div>
+
+    <div class="preview-box" id="preview-box">
+      <i class="ti ti-qrcode placeholder-icon" aria-hidden="true"></i>
+      <p class="placeholder-text">填入資訊後按「產生」</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  let logoDataUrl = null;
+
+  document.getElementById('logo-input').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      logoDataUrl = ev.target.result;
+      const img = document.getElementById('logo-preview');
+      img.src = logoDataUrl;
+      img.style.display = 'block';
+      document.getElementById('remove-logo').style.display = 'inline-block';
+    };
+    reader.readAsDataURL(file);
+  });
+
+  function removeLogo() {
+    logoDataUrl = null;
+    document.getElementById('logo-preview').style.display = 'none';
+    document.getElementById('remove-logo').style.display = 'none';
+    document.getElementById('logo-input').value = '';
+  }
+
+  document.getElementById('fg-color').addEventListener('input', function() {
+    document.getElementById('fg-hex').textContent = this.value;
+  });
+  document.getElementById('bg-color').addEventListener('input', function() {
+    document.getElementById('bg-hex').textContent = this.value;
+  });
+  document.getElementById('qr-size').addEventListener('input', function() {
+    document.getElementById('size-out').textContent = this.value + 'px';
+  });
+
+  function generateQR() {
+    const url = document.getElementById('url').value.trim();
+    if (!url) {
+      document.getElementById('url').focus();
+      return;
+    }
+
+    const caption = document.getElementById('caption').value.trim();
+    const fg = document.getElementById('fg-color').value;
+    const bg = document.getElementById('bg-color').value;
+    const size = parseInt(document.getElementById('qr-size').value);
+
+    const box = document.getElementById('preview-box');
+    box.innerHTML = '<div id="qr-tmp"></div>';
+
+    new QRCode(document.getElementById('qr-tmp'), {
+      text: url,
+      width: size,
+      height: size,
+      colorDark: fg,
+      colorLight: bg,
+      correctLevel: QRCode.CorrectLevel.H
+    });
+
+    setTimeout(() => {
+      const qrCanvas = document.querySelector('#qr-tmp canvas');
+      if (!qrCanvas) return;
+
+      const padding = 20;
+      const captionH = caption ? 36 : 0;
+      const logoSize = Math.floor(size * 0.2);
+      const totalH = size + captionH + padding * 2;
+      const totalW = size + padding * 2;
+
+      const out = document.createElement('canvas');
+      out.width = totalW;
+      out.height = totalH;
+      const ctx = out.getContext('2d');
+
+      ctx.fillStyle = bg;
+      ctx.roundRect(0, 0, totalW, totalH, 12);
+      ctx.fill();
+
+      ctx.drawImage(qrCanvas, padding, padding, size, size);
+
+      const finalize = () => {
+        if (caption) {
+          ctx.fillStyle = fg;
+          ctx.font = `500 ${Math.max(12, size * 0.055)}px -apple-system, sans-serif`;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(caption, totalW / 2, padding + size + captionH / 2);
+        }
+
+        box.innerHTML = '';
+        out.id = 'qr-canvas';
+        out.style.borderRadius = '8px';
+        box.appendChild(out);
+
+        if (caption) {
+          const cap = document.createElement('p');
+          cap.className = 'caption';
+          cap.textContent = caption;
+          box.appendChild(cap);
+        }
+
+        document.getElementById('dl-btn').style.display = 'flex';
+      };
+
+      if (logoDataUrl) {
+        const logoImg = new Image();
+        logoImg.onload = function() {
+          const lx = (totalW - logoSize) / 2;
+          const ly = padding + (size - logoSize) / 2;
+          const pad = 4;
+          ctx.fillStyle = bg;
+          ctx.beginPath();
+          ctx.roundRect(lx - pad, ly - pad, logoSize + pad * 2, logoSize + pad * 2, 6);
+          ctx.fill();
+          ctx.drawImage(logoImg, lx, ly, logoSize, logoSize);
+          finalize();
+        };
+        logoImg.src = logoDataUrl;
+      } else {
+        finalize();
+      }
+    }, 100);
+  }
+
+  function downloadQR() {
+    const canvas = document.querySelector('#qr-canvas');
+    if (!canvas) return;
+    const link = document.createElement('a');
+    link.download = 'qrcode.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }
+
+  if (!CanvasRenderingContext2D.prototype.roundRect) {
+    CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
+      this.beginPath();
+      this.moveTo(x + r, y);
+      this.lineTo(x + w - r, y);
+      this.quadraticCurveTo(x + w, y, x + w, y + r);
+      this.lineTo(x + w, y + h - r);
+      this.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      this.lineTo(x + r, y + h);
+      this.quadraticCurveTo(x, y + h, x, y + h - r);
+      this.lineTo(x, y + r);
+      this.quadraticCurveTo(x, y, x + r, y);
+      this.closePath();
+    };
+  }
+</script>
