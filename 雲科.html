@@ -739,7 +739,7 @@
     <li class="toc-sub"><a href="#section-5d">4. 友通資訊（DFI）　PCB 自動化工具</a><span class="toc-dots"></span><span class="toc-page">16</span></li>
     <li class="toc-sub"><a href="#section-5e">5. 校園場地租借系統　產學合作</a><span class="toc-dots"></span><span class="toc-page">18</span></li>
     <li class="toc-sub"><a href="#section-5f">6. 臥龍創意設計（DIY 架站雲）　前端模板開發</a><span class="toc-dots"></span><span class="toc-page">19</span></li>
-    <li class="toc-sub"><a href="#section-5g">7. 樂聯工業　系統除錯協作</a><span class="toc-dots"></span><span class="toc-page">20</span></li>
+    <li class="toc-sub"><a href="#section-5g">7. 樂聯工業　一人除錯 + 硬軟體建議</a><span class="toc-dots"></span><span class="toc-page">20</span></li>
     <li><a href="#appendix-1">附件一　專業證照</a><span class="toc-dots"></span><span class="toc-page">21</span></li>
     <li><a href="#appendix-2">附件二　FC 2025 論文發表證明</a><span class="toc-dots"></span><span class="toc-page">22</span></li>
     <li><a href="#appendix-3">附件三　TWELF 2025 論文發表證明</a><span class="toc-dots"></span><span class="toc-page">23</span></li>
@@ -799,7 +799,7 @@
       <li>第一作者發表兩篇研討會論文（國內 TWELF 2025、國際 FC 2025），聚焦 AI 視覺與 OCR 之自動化應用落地</li>
       <li>獨立交付友通資訊（DFI）PCB 自動化工具，主導需求訪談、報價時程協商與文件交付，獲公司年會評比第四名</li>
       <li>校園場地租借系統擔任前端開發 + 非正式 PM，將模糊行政需求轉譯為可執行技術規格並上線運行</li>
-      <li>申請雲科資管二技目的：以系統化的管理理論補足「技術之外」的缺口，朝資訊技術與組織管理整合方向發展</li>
+      <li><b>資工→資管的選擇背景</b>：三段業界實務（DFI 獨立交付、校園 PM、樂聯一人除錯 ERP）讓我確認——資工訓練我「<b>做得出東西</b>」，但企業真正缺的是「<b>做對的東西</b>」的能力。我選擇雲科資管，是希望以管理理論補上需求分析、專案管理、組織診斷三塊技術之外的核心缺口</li>
     </ul>
   </div>
 
@@ -923,9 +923,10 @@
     <tr>
       <th>語文能力</th>
       <td>
-        <span class="chip">英文國際研討會發表</span>
+        <span class="chip">英文國際研討會 FC 2025 口頭發表</span>
+        <span class="chip">英文論文第一作者撰寫</span>
         <span class="chip">科技英文 PVQC（Expert Tier Four）</span>
-        <span class="chip secondary">TOEIC（成績已過期）</span>
+        <span class="chip secondary">持續閱讀英文技術文件與開源討論</span>
       </td>
     </tr>
   </table>
@@ -970,13 +971,13 @@
       <span class="exp-title">樂聯工業股份有限公司</span>
     </div>
     <div class="exp-info-row">
-      <span class="exp-meta-text">2025 ｜ Part-time ｜ 系統維護</span>
+      <span class="exp-meta-text">2025 ｜ Part-time ｜ 一人除錯 + 硬軟體升級建議</span>
       <span class="exp-tags">
-        <span class="project-type">PHP</span>
-        <span class="project-type">舊系統</span>
+        <span class="project-type">15 年舊系統</span>
+        <span class="project-type">PHP 4 → 7</span>
       </span>
     </div>
-    <div class="exp-desc">進入製造業廠房，處理逾十年無文件 PHP 系統的除錯、流程觀察與跨角色溝通協作。</div>
+    <div class="exp-desc">一個人進入廠房，獨立完成 15 年無文件 PHP 系統除錯；除修復 bug 外，另向公司提供硬體規格與軟體模組重構建議。</div>
   </div>
 
   <div class="exp-item">
@@ -1063,29 +1064,46 @@
          style="width:100%; height:auto; display:block; background:#fff; border:1px solid var(--border);"
          font-family="DFKai-SB, BiauKai, 'Times New Roman', serif">
 
-      <!-- 年份／專X 標頭區 -->
+      <!-- 年份／專X 標頭區（上半：日曆年份；下半：學年 9 月為界） -->
       <rect x="80" y="5" width="650" height="50" fill="#eaf2f8" stroke="#1a5276" stroke-width="1"/>
-      <line x1="210" y1="5" x2="210" y2="55" stroke="#1a5276" stroke-width="0.6"/>
-      <line x1="340" y1="5" x2="340" y2="55" stroke="#1a5276" stroke-width="0.6"/>
-      <line x1="470" y1="5" x2="470" y2="55" stroke="#1a5276" stroke-width="0.6"/>
-      <line x1="600" y1="5" x2="600" y2="55" stroke="#1a5276" stroke-width="0.6"/>
+      <!-- 中間水平分隔線 -->
+      <line x1="80" y1="30" x2="730" y2="30" stroke="#1a5276" stroke-width="0.6"/>
+      <!-- 上半：日曆年份分隔 -->
+      <line x1="210" y1="5" x2="210" y2="30" stroke="#1a5276" stroke-width="0.6"/>
+      <line x1="340" y1="5" x2="340" y2="30" stroke="#1a5276" stroke-width="0.6"/>
+      <line x1="470" y1="5" x2="470" y2="30" stroke="#1a5276" stroke-width="0.6"/>
+      <line x1="600" y1="5" x2="600" y2="30" stroke="#1a5276" stroke-width="0.6"/>
+      <!-- 下半：學年（9 月）分隔 -->
+      <line x1="167" y1="30" x2="167" y2="55" stroke="#1a5276" stroke-width="0.6"/>
+      <line x1="297" y1="30" x2="297" y2="55" stroke="#1a5276" stroke-width="0.6"/>
+      <line x1="427" y1="30" x2="427" y2="55" stroke="#1a5276" stroke-width="0.6"/>
+      <line x1="557" y1="30" x2="557" y2="55" stroke="#1a5276" stroke-width="0.6"/>
 
-      <text x="145" y="27" text-anchor="middle" font-size="16" font-weight="700" fill="#1a5276">2022</text>
-      <text x="145" y="46" text-anchor="middle" font-size="12" fill="#444">專　二</text>
-      <text x="275" y="27" text-anchor="middle" font-size="16" font-weight="700" fill="#1a5276">2023</text>
-      <text x="275" y="46" text-anchor="middle" font-size="12" fill="#444">專　三</text>
-      <text x="405" y="27" text-anchor="middle" font-size="16" font-weight="700" fill="#1a5276">2024</text>
-      <text x="405" y="46" text-anchor="middle" font-size="12" fill="#444">專三–四</text>
-      <text x="535" y="27" text-anchor="middle" font-size="16" font-weight="700" fill="#1a5276">2025</text>
-      <text x="535" y="46" text-anchor="middle" font-size="12" fill="#444">專　四</text>
-      <text x="665" y="27" text-anchor="middle" font-size="16" font-weight="700" fill="#1a5276">2026</text>
-      <text x="665" y="46" text-anchor="middle" font-size="12" fill="#444">專　五</text>
+      <!-- 日曆年份 -->
+      <text x="145" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#1a5276">2022</text>
+      <text x="275" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#1a5276">2023</text>
+      <text x="405" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#1a5276">2024</text>
+      <text x="535" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#1a5276">2025</text>
+      <text x="665" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#1a5276">2026</text>
 
-      <!-- 年份分隔虛線 -->
+      <!-- 學年（依 9 月為界）-->
+      <text x="123" y="47" text-anchor="middle" font-size="11.5" fill="#444">專一</text>
+      <text x="232" y="47" text-anchor="middle" font-size="11.5" fill="#444">專　二</text>
+      <text x="362" y="47" text-anchor="middle" font-size="11.5" fill="#444">專　三</text>
+      <text x="492" y="47" text-anchor="middle" font-size="11.5" fill="#444">專　四</text>
+      <text x="643" y="47" text-anchor="middle" font-size="11.5" fill="#444">專　五</text>
+
+      <!-- 年份分隔虛線（日曆年） -->
       <line x1="210" y1="60" x2="210" y2="280" stroke="#cfd8e3" stroke-width="0.6" stroke-dasharray="2,3"/>
       <line x1="340" y1="60" x2="340" y2="280" stroke="#cfd8e3" stroke-width="0.6" stroke-dasharray="2,3"/>
       <line x1="470" y1="60" x2="470" y2="280" stroke="#cfd8e3" stroke-width="0.6" stroke-dasharray="2,3"/>
       <line x1="600" y1="60" x2="600" y2="280" stroke="#cfd8e3" stroke-width="0.6" stroke-dasharray="2,3"/>
+
+      <!-- 學年分隔虛線（9 月，較淺色標示「學年轉換點」）-->
+      <line x1="167" y1="60" x2="167" y2="280" stroke="#e0c4a8" stroke-width="0.5" stroke-dasharray="1,3" opacity="0.7"/>
+      <line x1="297" y1="60" x2="297" y2="280" stroke="#e0c4a8" stroke-width="0.5" stroke-dasharray="1,3" opacity="0.7"/>
+      <line x1="427" y1="60" x2="427" y2="280" stroke="#e0c4a8" stroke-width="0.5" stroke-dasharray="1,3" opacity="0.7"/>
+      <line x1="557" y1="60" x2="557" y2="280" stroke="#e0c4a8" stroke-width="0.5" stroke-dasharray="1,3" opacity="0.7"/>
 
       <!-- 「今」標記（2026/5 ≈ x=649）-->
       <line x1="649" y1="60" x2="649" y2="280" stroke="#c0392b" stroke-width="1" stroke-dasharray="3,2" opacity="0.7"/>
@@ -1339,11 +1357,11 @@
   <div class="plan-card" style="margin-top:0;">
     <div class="plan-card-title">▌ 英文能力與國際視野持續精進　（短期 4-1 續）</div>
     <div class="plan-card-body">
-      <p style="margin-bottom:4px;">專三時考過多益 <b>595 分</b>，但證書已過期。經過近兩年程式協作、英文論文撰寫與國際研討會發表的洗禮，反而讓我更清楚地意識到——軟體業已是日常面對英文文件、英文同步協作與英文技術社群的環境，「國際化」是<b>已經發生</b>、而非未來才會來的事。我認為自己的英文能力不能止步於 2023 年那張過期證書，必須繼續鑽研，才能應對國際化的趨勢。</p>
+      <p style="margin-bottom:4px;">兩段英文研討會論文發表經驗（TWELF 2025 中英文摘要、FC 2025 全英文論文與口頭報告）讓我意識到——軟體業已是日常面對英文文件、英文同步協作的環境，「國際化」是<b>已經發生</b>、而非未來才會來的事。我希望在二技期間進一步強化英文實戰能力：</p>
       <ul>
-        <li>在校期間重新考取多益（目標 <b>750+</b> 分）以更新證書並反映實質能力。</li>
-        <li>持續維持以英文為主的技術寫作與閱讀習慣（GitHub README、研討會論文、官方文件、開源 issue 討論）。</li>
-        <li>嘗試以第一作者身份發表第二篇英文研討會論文，主題鎖定「AI 應用 × 管理整合」方向。</li>
+        <li><b>入學前：</b>考取多益證書（目標 <b>750+</b> 分），以可驗證的成績反映實質能力。</li>
+        <li><b>二技期間：</b>持續以英文為主的技術寫作與閱讀（GitHub README、研討會論文、官方文件、開源 issue 討論）。</li>
+        <li><b>進階挑戰：</b>嘗試以第一作者身份發表第二篇英文研討會論文，主題鎖定「AI 應用 × 管理整合」方向。</li>
       </ul>
     </div>
   </div>
@@ -1393,11 +1411,12 @@
   </div>
 
   <div class="bio-content">
+
     <div class="sub-label">▸ 動機</div>
-    <p>在校期間，我以第一作者身份參與兩篇研討會論文發表，研究主題聚焦將 YOLO 物件偵測與 CNN-OCR 整合應用於自動化閱卷系統。此專案源於一個實際痛點：傳統紙本閱卷耗時且易受主觀影響，而現有 OCR 方案面對手寫字跡與雜訊時準確率明顯不足。系統核心架構分為兩層：前端以 YOLOv7 對試卷進行區域偵測（題目、作答區、題號），後端以 CNN-OCR 模型辨識手寫與印刷文字，最終透過排序與匹配演算法將辨識結果對應至標準答案，輸出結構化評分結果。</p>
+    <p>研究主題聚焦將 YOLO 物件偵測與 CNN-OCR 整合應用於自動化閱卷系統。此專案源於一個實際痛點：傳統紙本閱卷耗時且易受主觀影響，而現有 OCR 方案面對手寫字跡與雜訊時準確率明顯不足。系統核心架構分為兩層：前端以 YOLOv7 對試卷進行區域偵測（題目、作答區、題號），後端以 CNN-OCR 模型辨識手寫與印刷文字，最終透過排序與匹配演算法將辨識結果對應至標準答案，輸出結構化評分結果。</p>
 
     <div class="sub-label">▸ 歷程</div>
-    <p>研究過程中，我們系統性導入資料增強策略，將手寫樣本由 2,976 筆擴充至 23,806 筆，並針對 YOLO 輸出邊界框設計結合歐氏距離的客製化匹配邏輯，解決答題區域與標準答案的對應問題。從資料標註、增強策略，到匹配邏輯的客製化實作，每一個環節都需要在理論與工程判斷之間反覆權衡。從問題定義、實驗設計到論文撰寫的完整流程，讓我體會到學術嚴謹性與工程執行力高度相通——對應雲科資管系核心能力中的「問題解決能力」與「分析能力」。</p>
+    <p>研究過程中，我系統性導入資料增強策略，將手寫樣本由 2,976 筆擴充至 23,806 筆，並針對 YOLO 輸出邊界框設計結合歐氏距離的客製化匹配邏輯。從資料標註、增強策略，到匹配邏輯的客製化實作，每一個環節都需要在理論與工程判斷之間反覆權衡。從問題定義、實驗設計到論文撰寫的完整流程，讓我體會到學術嚴謹性與工程執行力高度相通——對應雲科資管系核心能力中的「問題解決能力」與「分析能力」。</p>
   </div>
 
   <div class="figure-block">
@@ -1412,6 +1431,7 @@
 <div class="page page-break page-doc">
 
   <div class="bio-content">
+    
     <div class="sub-label">▸ 結論</div>
     <p>解決一個真實問題的難度，往往不在演算法本身，而在於資料、邊界條件與系統整合。最終系統在區域偵測上達到 mAP@0.5 97.1%，OCR 模型約 10 個 epoch 後收斂至 95% 準確率；但陌生手寫資料上仍約 50% 誤判，誠實揭示了泛化能力的邊界。這段研究所建立的「清楚定義問題、嚴謹執行、誠實面對模型限制」的結構化思維，是我希望帶入雲科資管系、進一步以資料探勘與決策支援理論強化的核心能力。</p>
   </div>
@@ -1477,6 +1497,9 @@
   </div>
 
   <div class="bio-content">
+    <div class="sub-label">▸ 我的角色</div>
+    <p>系統架構師 ｜ 全端開發主導 ｜ AI Pipeline 整合。將研討會的演算法核心，獨立設計為 Next.js + FastAPI + MySQL 的三層架構；非同步推論流程（YOLO → CNN-OCR → 匹配）由我設計狀態回饋機制；前端教師操作介面亦由我規劃三階段拆解。</p>
+
     <div class="sub-label">▸ 起點</div>
     <p>同年，我參加校內專題競賽。系統以研討會論文的技術核心為基礎，進一步將 YOLOv7 + CNN-OCR 演算法落地為可實際操作的網頁應用程式——Grade AI。系統採前後端分離架構，以 Next.js 建構教師操作介面、FastAPI 處理業務邏輯、MySQL 儲存成績與批改紀錄，實現從試卷影像上傳、AI 辨識到成績報表的完整數位評量閉環，並於 2025 年資訊與流通學院專題成果展中入選展出。</p>
 
@@ -1569,12 +1592,15 @@
       <div style="font-size:8pt; color:var(--text-muted); text-align:center;">DFI 年會專案評比肯定</div>
     </div>
 
+    <div class="sub-label">▸ 我的角色</div>
+    <p>主導開發 ｜ 需求訪談 ｜ 系統架構設計 ｜ <b>系統文件撰寫主導</b>。從演算法原理說明、API 介面文件到操作手冊，完整建立可供後續工程師接手維護的技術知識庫。</p>
+
     <div class="sub-label">▸ 承接</div>
-    <p>2025 至 2026 年間，我獨立承接友通資訊（DFI）的 PCB 元件自動化製圖工具開發案。這是我第一次完整經歷企業級專案的全生命週期——從與工程師需求訪談、制定功能規格、進行系統設計，到程式開發、測試驗收、文件交付，每個環節都由我一人主導執行。</p>
+    <p>2025 至 2026 年間，我主導承接友通資訊（DFI）的 PCB 元件自動化製圖工具開發案。從需求訪談、報價、時程協商、系統設計、卷積文字密度演算法設計、Python 實作，到<b>主導系統文件的撰寫與交付</b>——所有核心技術決策由我負責，並與公司內部工程師、產品端進行多次需求對齊與驗收溝通，確保技術產出符合實際生產線需求。</p>
 
     <div class="sub-label">▸ 歷程：技術與管理並行</div>
-    <p>技術核心是自訂的影像處理管線。在修習信號與系統課程時，我深入理解卷積（Convolution）運算的物理意義——對訊號局部特徵的加權疊加。我將此概念遷移至文字影像分析，設計「卷積文字密度演算法」：以一維卷積核掃描行列方向像素值、計算局部密度分布，自動推算切割座標。值得一提的是，這正是 CNN 最底層的核心計算，也讓我對深度學習建立了更直接的理解連結。</p>
-    <p>商業面則涉及<b>報價、時程協商、需求釐清與交付確認</b>——這些是工程訓練中沒有教的內容。我花了大量時間學習如何把技術不確定性翻譯成客戶聽得懂的語言、如何在「客戶想要的」與「實作成本」之間找到平衡點。這次經驗讓我清楚意識到：未來如果要繼續承接更複雜的企業專案，必須要有系統化的<b>專案管理 ／ 軟體品質管理 ／ 管理資訊系統</b>訓練，這正是我選擇雲科資管的關鍵理由。</p>
+    <p>技術核心是自訂的影像處理管線。在修習信號與系統課程時，我深入理解卷積（Convolution）運算的物理意義——對訊號局部特徵的加權疊加。我將此概念遷移至文字影像分析，設計「卷積文字密度演算法」：以一維卷積核掃描行列方向像素值、計算局部密度分布，自動推算切割座標。這正是 CNN 最底層的核心計算，也讓我對深度學習建立了更直接的理解連結。</p>
+    <p>商業面則涉及<b>報價、時程協商、需求釐清與交付確認</b>，並同步建立<b>完整的系統技術文件</b>——這些是工程訓練中沒有教的內容。它讓我清楚意識到：未來如果要繼續承接更複雜的企業專案，必須要有系統化的<b>專案管理 ／ 軟體品質管理 ／ 知識管理</b>訓練，這正是我選擇雲科資管的關鍵理由。</p>
 
     <div style="clear:both;"></div>
   </div>
@@ -1591,8 +1617,11 @@
 <div class="page page-break page-doc">
 
   <div class="bio-content">
+    <div class="sub-label">▸ 架構決策思維</div>
+    <p>選擇「<b>卷積文字密度演算法</b>」而非深度學習切割模型的理由：（1）<b>資料限制</b>——PCB 元件圖數量有限，深度學習易過擬合；（2）<b>可解釋性</b>——傳產客戶需要的是「為什麼這樣切」的明確邏輯；（3）<b>部署成本</b>——客戶端不必裝 GPU 或重型框架；（4）<b>可調參數</b>——卷積核大小可由工程師根據新元件樣式直接微調。這次選型驗證了「<b>最先進的方案不等於最適合的方案</b>」——這正是我希望在雲科資管「管理資訊系統」與「系統分析與設計」中進一步系統化的判斷力。</p>
+
     <div class="sub-label">▸ 收穫</div>
-    <p>工具正式交付後，將工程師原本數小時的手動作業縮短至數秒，並獲得公司年會專案評比第四名。獨立交付意味著必須同時承擔技術決策與對外溝通的雙重責任，也讓我確認自己具備在資源有限環境下獨立解決問題的能力。但這次經驗最深的體會是：<b>專案成功與否，技術佔比不到一半</b>。剩下的，是需求分析、規格管理、與不同角色溝通的能力——而這些，正是雲科資管系著重訓練的核心能力。</p>
+    <p>工具正式交付後，將工程師原本數小時的手動作業縮短至數秒，並獲得公司年會專案評比第四名肯定。我在此專案中除主導開發外，<b>另一項關鍵貢獻是系統文件的撰寫與交付</b>——涵蓋演算法原理、API 介面、操作手冊等完整文件，確保後續工程師可順利接手維護。這段經驗讓我深刻理解：<b>程式碼本身不是交付物，可被組織持續使用的系統知識才是</b>——這正是雲科資管「軟體品質管理」「知識管理」的訓練核心。</p>
 
     <div style="clear:both;"></div>
   </div>
@@ -1709,24 +1738,28 @@
 <!-- ==================== 樂聯工業 ==================== -->
 <div class="page page-break page-doc" id="section-5g">
 
-  <div class="bio-sub-title">7. 樂聯工業　系統除錯協作　（強調：理解企業流程、技術債管理）</div>
+  <div class="bio-sub-title">7. 樂聯工業　一人除錯 15 年舊系統 + 硬軟體建議</div>
   <div class="section-keywords">
-    <span class="chip">PHP</span>
-    <span class="chip">舊系統除錯</span>
-    <span class="chip">問題定位</span>
-    <span class="chip secondary">廠房現場</span>
+    <span class="chip">一人除錯</span>
+    <span class="chip">15 年舊系統</span>
+    <span class="chip">硬體升級建議</span>
+    <span class="chip">軟體重構建議</span>
+    <span class="chip secondary">PHP 4 → 7</span>
     <span class="chip secondary">Notion 任務追蹤</span>
   </div>
 
   <div class="bio-content">
-    <div class="sub-label">▸ 踏入現場：見到組織運作差異</div>
-    <p>2025 年，我受邀協助樂聯工業除錯內部系統。與以往接案不同，這次實際前往廠房，參與作業員會議並與工程師跨角色溝通，從兩端視角同步掌握問題全貌——這是我第一次近距離見識傳統製造業的日常運作。</p>
+    <div class="sub-label">▸ 我的角色</div>
+    <p>獨立除錯 ｜ 系統健檢 ｜ 硬軟體升級建議提供者。2025 年，我受邀協助樂聯工業處理一套已運作 15 年的內部系統——不同於團隊協作的開發專案，這次是<b>一個人進入現場</b>，獨立完成除錯工作，並向公司提供硬體升級與軟體優化的建議。</p>
 
-    <div class="sub-label">▸ 深入舊系統：技術債背後的組織邏輯</div>
-    <p>系統為逾十年的舊有 PHP 程式碼庫，無文件、無原始開發者。我必須直接閱讀程式碼還原邏輯後再定位問題。這段經驗讓我意識到：<b>技術債不只是程式碼問題，更是一整套組織運作方式的具象化呈現</b>——組織結構、溝通模式與技術採用決策都嵌入其中。此觀察直接對應雲科資管發展方向 4：「資訊技術與管理和組織的整合」。</p>
+    <div class="sub-label">▸ 進入現場：一個人面對 15 年的程式碼</div>
+    <p>這套系統無原始開發者、無文件、跨多代技術棧（PHP 4 → 7 混用）。我必須獨立完成：（1）透過閱讀 legacy code 還原業務邏輯；（2）與作業員、工程師訪談，補齊文件缺口；（3）在不影響日常運作的前提下定位錯誤與效能瓶頸。</p>
 
-    <div class="sub-label">▸ 提問的藝術</div>
-    <p>除錯能力是軟體工程師最難取代的核心能力。我學到工程師與使用者截然不同的視角，以及跨角色溝通中「提問」本身的價值；透過 Notion 記錄追蹤每次溝通。雲科資管的「<b>軟體品質管理</b>」「<b>知識管理</b>」正是我想把這段經驗系統化的下一步。</p>
+    <div class="sub-label">▸ 從除錯者升級為建議者：給出軟硬體升級建議</div>
+    <p>單純「修好 bug」只解決症狀。我額外向公司提出<b>升級建議</b>，涵蓋兩個層次：（1）<b>硬體面</b>——伺服器規格瓶頸分析、儲存設備升級（SSD vs HDD）的成本效益建議；（2）<b>軟體面</b>——哪些模組可修補、哪些建議重構、哪些已過時應淘汰。這讓我從「執行者」轉變為「<b>建議者</b>」——必須回答的不只是「能不能修好」，還包含「<b>值不值得修</b>」與「<b>怎麼修比較划算</b>」。</p>
+
+    <div class="sub-label">▸ 對應雲科資管的學習動機</div>
+    <p>這次經驗讓我意識到：<b>技術人的真正價值，是把技術可行性翻譯成商業決策</b>。同時也讓我看到「技術債背後是組織」——15 年的程式碼裡，嵌入的不只是 bug，更是組織的溝通模式、決策慣性與技術採用邏輯。這正是雲科資管「<b>策略資訊管理</b>」「<b>組織診斷與更新</b>」「<b>軟體品質管理</b>」想訓練的核心，也是我從工程師轉向整合型人才的關鍵起點。</p>
 
     <div style="clear:both;"></div>
   </div>
